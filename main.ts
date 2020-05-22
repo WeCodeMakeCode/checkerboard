@@ -18,19 +18,18 @@ let pixels_per_cell = 0
 let color2 = 0
 let color1 = 0
 let screen_sprite = sprites.create(image.create(scene.screenWidth(), scene.screenHeight()), SpriteKind.Player)
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 10; index++) {
     color1 = Math.randomRange(1, 15)
     color2 = Math.randomRange(1, 15)
     while (color1 == color2) {
         color2 = Math.randomRange(1, 15)
     }
-    for (let index = 0; index <= 16; index++) {
+    for (let index = 0; index <= 12; index++) {
         pixels_per_cell = (index + 1) * 4
         row_cells = Math.ceil(scene.screenHeight() / pixels_per_cell)
         col_cells = Math.ceil(scene.screenWidth() / pixels_per_cell)
         screen_sprite = sprites.create(image.create(col_cells * pixels_per_cell, row_cells * pixels_per_cell), SpriteKind.Player)
         do_checker_variable_Cells(screen_sprite, color1, color2, pixels_per_cell)
-        pause(500)
-        screen_sprite.image.fill(color2)
+        pause(100)
     }
 }
